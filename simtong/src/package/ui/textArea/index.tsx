@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import errorImg from "./error.png";
 
@@ -12,7 +12,7 @@ interface textAreaType {
 
 export default function TextArea(props: textAreaType) {
   const { width, height, errorMessge, label, event } = props;
-  const error: boolean = false;
+  const [error, setError] = useState<boolean>(false);
 
   return (
     <>

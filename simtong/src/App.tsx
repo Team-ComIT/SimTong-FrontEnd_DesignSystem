@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "./package/ui/input/index";
+import TextArea from "./package/ui/textArea/index";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Input width="400px" placeholder="입력받고" errorMessge="Error" />
+      <TextArea width="400px" height="500px" label="입력해주세요" />
     </div>
   );
 }

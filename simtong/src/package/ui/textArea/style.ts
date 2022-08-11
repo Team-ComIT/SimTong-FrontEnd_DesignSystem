@@ -1,20 +1,30 @@
 import styled from "@emotion/styled";
 
 export const TextAreaStyle = styled.div`
-  width: 328px;
-  height: 128px;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const TextAreaInput = styled.textarea`
-  border: 1px solid #d3d3d3;
+interface textAreaInputType {
+  width: string;
+  height: string;
+  borderColor: string;
+}
+
+export const TextAreaInput = styled.textarea<textAreaInputType>`
+  border: 1px solid ${(props) => props.borderColor};
   border-radius: 5px;
   resize: none;
-  width: 100%;
-  height: 100%;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   overflow-x: hidden;
   overflow-y: hidden;
   outline: none;
   caret-color: #006eff;
+  font-weight: 400;
+  font-size: 14px;
+  color: #242424;
+
   &:focus {
     color: #000;
     border: 1px solid #006eff;
@@ -27,8 +37,12 @@ export const TextAreaInput = styled.textarea`
   }
 `;
 
-export const TextAreaLabel = styled.div`
-  width: 100%;
+interface textAreaLabelType {
+  width: string;
+}
+
+export const TextAreaLabel = styled.div<textAreaLabelType>`
+  width: ${(props) => props.width};
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;

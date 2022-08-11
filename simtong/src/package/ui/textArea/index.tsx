@@ -2,21 +2,37 @@ import React from "react";
 import * as S from "./style";
 import errorImg from "./error.png";
 
-export default function TextArea() {
+interface textAreaType {
+  width: string;
+  height: string;
+  label: string;
+  errorMessge?: string;
+  event?: () => {};
+}
+
+export default function TextArea(props: textAreaType) {
+  const { width, height, errorMessge, label, event } = props;
   const error: boolean = false;
 
   return (
     <>
       <S.TextAreaStyle>
-        <S.TextAreaLabel>
-          <span>Label</span>
+        <S.TextAreaLabel width={width}>
+          <span>{label}</span>
           <S.TextAreaLength>0/200</S.TextAreaLength>
         </S.TextAreaLabel>
-        <S.TextAreaInput placeholder="Placeholder Text" maxLength={200} />
+        <S.TextAreaInput
+          onChange={event}
+          width={width}
+          height={height}
+          borderColor="#D3D3D3"
+          placeholder="Placeholder Text"
+          maxLength={200}
+        />
         {error ? (
           <S.TextAreaError>
             <img src={errorImg} alt="error" />
-            <span>Error Message</span>
+            <span>{errorMessge || <>에러가 발생했습니다</>}</span>
           </S.TextAreaError>
         ) : (
           <></>

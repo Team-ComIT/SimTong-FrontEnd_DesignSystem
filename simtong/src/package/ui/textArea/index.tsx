@@ -4,6 +4,7 @@ import errorImg from "./error.png";
 
 export default function TextArea() {
   const error: boolean = false;
+
   return (
     <>
       <S.TextAreaStyle>

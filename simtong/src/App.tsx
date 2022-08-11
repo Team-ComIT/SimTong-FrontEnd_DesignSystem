@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Input />
+      <Input width="400px" placeholder="입력받고" errorMessge="Error" />
     </div>
   );
 }

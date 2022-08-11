@@ -8,6 +8,7 @@ export const InputStyle = styled.div`
 `;
 
 interface InputType {
+  width: string;
   borderColor: string;
 }
 
@@ -15,7 +16,7 @@ export const Input = styled.input<InputType>`
   border: 1px solid ${(props) => props.borderColor};
   border-radius: 5px;
   resize: none;
-  width: 250px;
+  width: ${(props) => props.width};
   height: 42px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -68,7 +69,7 @@ export const Show = styled.img`
   width: 22px;
   height: 22px;
   object-fit: cover;
-  right: 0;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -76,6 +77,4 @@ export const Show = styled.img`
 
 export const Password = styled.div`
   position: relative;
-  width: 250px;
-  height: 42px;
 `;

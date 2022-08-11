@@ -6,7 +6,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <TextArea width="400px" height="500px" label="입력해주세요" />
+      <TextArea
+        width="400px"
+        height="500px"
+        label="입력해주세요"
+        maxLenght={300}
+      />
     </div>
   );
 }

@@ -6,20 +6,22 @@ import showImg from "./show.png";
 import hideImg from "./blind.png";
 
 export default function Input() {
-  const error: boolean = false;
   const success: boolean = false;
-  const password: boolean = true;
+  const password: boolean = false;
+  const [showError, setShowError] = useState<boolean>(false);
   const [hide, setHide] = useState<boolean>(true);
 
   const handleClickHidePassword = () => {
     setHide(!hide);
   };
+
   return (
     <>
       <S.InputStyle>
         {password ? (
           <S.Password>
             <S.Input
+              borderColor={showError ? "#DC3035" : "#D3D3D3"}
               type={hide ? "password" : "text"}
               placeholder="Placeholder Text"
               maxLength={200}
@@ -31,9 +33,13 @@ export default function Input() {
             />
           </S.Password>
         ) : (
-          <S.Input placeholder="Placeholder Text" maxLength={200} />
+          <S.Input
+            borderColor={showError ? "#DC3035" : "#D3D3D3"}
+            placeholder="Placeholder Text"
+            maxLength={200}
+          />
         )}
-        {error ? (
+        {showError ? (
           <S.InputError>
             <img src={errorImg} alt="error" />
             <span>Error Message</span>

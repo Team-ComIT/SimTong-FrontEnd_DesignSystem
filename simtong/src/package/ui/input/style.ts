@@ -1,12 +1,18 @@
 import styled from "@emotion/styled";
 
 export const InputStyle = styled.div`
-  width: 250px;
-  height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
 `;
 
-export const Input = styled.input`
-  border: 1px solid #d3d3d3;
+interface InputType {
+  borderColor: string;
+}
+
+export const Input = styled.input<InputType>`
+  border: 1px solid ${(props) => props.borderColor};
   border-radius: 5px;
   resize: none;
   width: 250px;
@@ -16,6 +22,7 @@ export const Input = styled.input`
   outline: none;
   padding-left: 15px;
   caret-color: #006eff;
+
   &:focus {
     color: #000;
     border: 1px solid #006eff;
@@ -57,6 +64,7 @@ export const InputSuccess = styled.div`
 `;
 
 export const Show = styled.img`
+  cursor: pointer;
   width: 22px;
   height: 22px;
   object-fit: cover;

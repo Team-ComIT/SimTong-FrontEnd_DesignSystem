@@ -1,12 +1,20 @@
+import React, { useState } from "react";
 import * as S from "./styles";
 
-export default function SelectBox() {
-  const arr: string[] = ["근무지를 선택해주세요", "1", "2", "3"];
+interface selectBoxType {
+  width: string;
+  optionArray: string[];
+}
+
+export default function SelectBox(props: selectBoxType) {
+  const { width, optionArray } = props;
+  const [array, setArray] = useState<string[]>(optionArray);
+
   return (
     <>
       <S.SelectStyle>
-        {arr.map((str) => (
-          <option value={str}>{str}</option>
+        {array.map((item) => (
+          <option value={item}>{item}</option>
         ))}
       </S.SelectStyle>
     </>

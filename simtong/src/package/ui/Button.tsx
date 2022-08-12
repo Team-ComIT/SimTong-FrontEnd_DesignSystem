@@ -73,7 +73,7 @@ const Button: FC<ButtonProps> = (props) => {
     case "ColorOutline":
       return (
         <OutlineButtonWrapper
-          default="#FFFFFF"
+          default="#E84045"
           hover="#FFEDEE"
           focus="#FF999C"
           {...props}

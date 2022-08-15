@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <SelectStyle width="250px" optionArray={["1", "2", "3"]} />
+      <SelectStyle width="250px" optionArray={["근무지를 선택해주세요", "2", "3"]} />
     </div>
   );
 }

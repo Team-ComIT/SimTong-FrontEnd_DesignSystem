@@ -20,16 +20,24 @@ export const SelectBox = styled.div`
   outline: none;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+  background-color: #ffffff;
+
   * {
     box-sizing: border-box;
   }
 
   li {
+    transition: all 0.3s;
     width: 100%;
     height: 42px;
     display: flex;
     align-items: center;
     padding-left: 15px;
+    background-color: #ffffff;
+
+    :hover {
+      background-color: #ededed;
+    }
   }
 `;
 
@@ -43,6 +51,8 @@ export const Label = styled.button`
   padding-left: 15px;
   background: none;
   cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
 
   img {
     transition: all 0.2s linear;
@@ -67,4 +77,9 @@ export const OptionList = styled.ul`
   border-radius: 5px;
   overflow: hidden;
   max-height: 0;
+
+  li {
+    font-weight: 700;
+    font-size: 14px;
+  }
 `;

@@ -1,16 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./styles";
 import arrow from "./arrow.png";
 
 interface SelectBoxProps {
   defaultvalue?: string;
   content?: string[];
+  event?: (e: React.MouseEvent) => void;
 }
 
 export default function SelectBox(props: SelectBoxProps) {
-  const { defaultvalue, content } = props;
+  const { defaultvalue, content, event } = props;
 
   const SelectBoxRef = useRef<HTMLDivElement>(null);
+  const [showValue, setShowValue] = useState(defaultvalue);
 
   // 라벨을 클릭시 옵션 목록이 열림/닫힘
   const showOption = () => {
@@ -21,16 +23,22 @@ export default function SelectBox(props: SelectBoxProps) {
     }
   };
 
+  const changeValue = (str: string) => {
+    setShowValue(str);
+  };
+
   return (
     <S.SelectStyle>
       <S.SelectBox ref={SelectBoxRef} onClick={showOption}>
         <S.Label>
-          {defaultvalue}
+          {showValue ? showValue : "근무지를 선택해주세요"}
           <img src={arrow} alt="" />
         </S.Label>
         <S.OptionList>
           {content?.map((str: string) => (
-            <li>{str}</li>
+            <div onClick={() => changeValue(str)}>
+              <li onClick={event}>{str}</li>
+            </div>
           ))}
         </S.OptionList>
       </S.SelectBox>
